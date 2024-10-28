@@ -1,5 +1,5 @@
 // React Libs
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 // Pages
@@ -11,6 +11,7 @@ import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
 
 // Components
+import City from './components/City';
 import CityList from './components/CityList';
 import CountryList from './components/CountryList';
 
@@ -51,15 +52,14 @@ function App() {
         {/* Main page */}
         <Route path='app' element={<AppLayout />}>
           {/* Default path is /cities */}
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          <Route index element={<Navigate replace to={'cities'} />} />
 
           <Route
             path='cities'
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
+          <Route path='cities/:id' element={<City />} />
+
           <Route
             path='countries'
             element={<CountryList cities={cities} isLoading={isLoading} />}
