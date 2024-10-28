@@ -13,13 +13,24 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Landing />} /> {/* Landing page */}
-        <Route path='/product' element={<Product />} />
-        <Route path='/pricing' element={<Pricing />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/app' element={<AppLayout />} /> {/* Main page */}
-        <Route path='*' element={<NotFound />} />
+        {/* Landing page */}
+        <Route index element={<Landing />} />
+        <Route path='product' element={<Product />} />
+        <Route path='pricing' element={<Pricing />} />
+        <Route path='login' element={<Login />} />
+
+        {/* Main page */}
+        <Route path='app' element={<AppLayout />}>
+          {/* Default path is /cities */}
+          <Route index element={<>Cities</>} />
+
+          <Route path='cities' element={<>Cities</>} />
+          <Route path='countries' element={<>Countries</>} />
+          <Route path='form' element={<>Form</>} />
+        </Route>
+
         {/* Any URL that's not found above will be directed to the page above */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
