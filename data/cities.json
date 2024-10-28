@@ -35,6 +35,42 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Porto",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-04-12T16:00:00.000Z",
+      "notes": "Beautiful riverside views!",
+      "position": {
+        "lat": 41.157944,
+        "lng": -8.629105
+      },
+      "id": 11112222
+    },
+    {
+      "cityName": "Sydney",
+      "country": "Australia",
+      "emoji": "🇦🇺",
+      "date": "2027-12-01T12:10:25.321Z",
+      "notes": "Beautiful harbor",
+      "position": {
+        "lat": -33.86882,
+        "lng": 151.209296
+      },
+      "id": 66778899
+    },
+    {
+      "cityName": "Sintra",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-08-18T12:45:32.000Z",
+      "notes": "Enchanting palaces!",
+      "position": {
+        "lat": 38.8028687,
+        "lng": -9.3816583
+      },
+      "id": 33334444
     }
   ]
 }

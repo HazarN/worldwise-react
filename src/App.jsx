@@ -12,6 +12,7 @@ import Login from './pages/Login';
 
 // Components
 import CityList from './components/CityList';
+import CountryList from './components/CountryList';
 
 function App() {
   // States
@@ -59,7 +60,10 @@ function App() {
             path='cities'
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
-          <Route path='countries' element={<>Countries</>} />
+          <Route
+            path='countries'
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
           <Route path='form' element={<>Form</>} />
         </Route>
 
