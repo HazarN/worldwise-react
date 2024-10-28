@@ -7,6 +7,7 @@ import Product from './pages/Product';
 import Pricing from './pages/Pricing';
 import NotFound from './pages/NotFound';
 import AppLayout from './pages/AppLayout';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Landing />} /> {/* Landing page */}
         <Route path='/product' element={<Product />} />
         <Route path='/pricing' element={<Pricing />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/app' element={<AppLayout />} /> {/* Main page */}
         <Route path='*' element={<NotFound />} />
         {/* Any URL that's not found above will be directed to the page above */}
