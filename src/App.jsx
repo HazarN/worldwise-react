@@ -1,5 +1,6 @@
 // React Libs
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // Pages
 import Landing from './pages/Homepage';
@@ -9,7 +10,34 @@ import NotFound from './pages/NotFound';
 import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
 
+// Components
+import CityList from './components/CityList';
+
 function App() {
+  // States
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Effects
+  useEffect(() => {
+    async function fetchCities() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/cities`);
+        const data = await res.json();
+
+        setCities(cities => data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchCities();
+  }, []);
+
+  // Body
   return (
     <BrowserRouter>
       <Routes>
@@ -22,9 +50,15 @@ function App() {
         {/* Main page */}
         <Route path='app' element={<AppLayout />}>
           {/* Default path is /cities */}
-          <Route index element={<>Cities</>} />
+          <Route
+            index
+            element={<CityList cities={cities} isLoading={isLoading} />}
+          />
 
-          <Route path='cities' element={<>Cities</>} />
+          <Route
+            path='cities'
+            element={<CityList cities={cities} isLoading={isLoading} />}
+          />
           <Route path='countries' element={<>Countries</>} />
           <Route path='form' element={<>Form</>} />
         </Route>
