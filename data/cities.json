@@ -1,3 +1,52 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "id": "3b63",
+      "cityName": "Mahmudiye",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "notes": "",
+      "position": {
+        "lat": "39.41073305508498",
+        "lng": "30.844116210937504"
+      },
+      "date": "2024-10-29T19:20:33.988Z"
+    },
+    {
+      "id": "fc17",
+      "cityName": "Eskil",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "notes": "",
+      "position": {
+        "lat": "38.64261790634527",
+        "lng": "33.40393066406251"
+      },
+      "date": "2024-10-29T19:25:37.701Z"
+    },
+    {
+      "id": "33ae",
+      "cityName": "Cihanbeyli",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "notes": "",
+      "position": {
+        "lat": "38.72301905397471",
+        "lng": "33.29132080078126"
+      },
+      "date": "2024-10-29T19:25:37.701Z"
+    },
+    {
+      "id": "ca0c",
+      "cityName": "Manawatawhi / Three Kings Islands",
+      "country": "New Zealand",
+      "emoji": "🇳🇿",
+      "notes": "lord of the rings\n",
+      "position": {
+        "lat": "-34.16114345875811",
+        "lng": "172.13280200958252"
+      },
+      "date": "2024-10-29T19:25:37.701Z"
+    }
+  ]
 }

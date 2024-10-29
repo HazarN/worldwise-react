@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 
+const LAT_LIMIT = 90;
+const LNG_LIMIT = 180;
+
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
     .toUpperCase()
@@ -13,6 +16,7 @@ export function useDecodeGeolocation(positionArray, dispatch) {
 
   useEffect(() => {
     if (!lat && !lng) return;
+    if (Math.abs(lat) > LAT_LIMIT || Math.abs(lng) > LNG_LIMIT) return;
 
     async function decodeGeolocation() {
       try {
