@@ -1,31 +1,43 @@
-import { useParams } from 'react-router-dom';
-import styles from './City.module.css';
+// React Libs
+import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const formatDate = date =>
-  new Intl.DateTimeFormat('en', {
+// Contexts
+import { useCityContext } from '../../contexts/CityContext';
+
+// Components
+import Spinner from '../Spinner/Spinner';
+import Button from '../Button/Button';
+
+// CSS Module
+import styles from './City.module.css';
+import BackButton from '../Button/BackButton';
+
+const dateFormatter = dateStr => {
+  const date = new Date(dateStr);
+  return new Intl.DateTimeFormat('en', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
     weekday: 'long',
-  }).format(new Date(date));
+  }).format(date);
+};
 
 function City() {
   const { id } = useParams();
+  const { activeCity, isLoading, fetchCityById } = useCityContext();
 
-  // TEMP DATA
-  const currentCity = {
-    cityName: 'Lisbon',
-    emoji: '🇵🇹',
-    date: '2027-10-31T15:59:59.138Z',
-    notes: 'My favorite city so far!',
-  };
+  const { cityName, emoji, date, notes } = activeCity;
 
-  const { cityName, emoji, date, notes } = currentCity;
+  useEffect(() => {
+    fetchCityById(id);
+  }, [id]);
+
+  // Conditional render should be below the effect, due to the rules of the hooks
+  if (isLoading) return <Spinner />;
 
   return (
-    <h1>
-      City {id}
-      {/* <div className={styles.city}>
+    <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
@@ -35,7 +47,8 @@ function City() {
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date || null)}</p>
+        <p>{dateFormatter(date || null)}</p>
+        {/* the 'null' here is extremely important */}
       </div>
 
       {notes && (
@@ -49,18 +62,17 @@ function City() {
         <h6>Learn more</h6>
         <a
           href={`https://en.wikipedia.org/wiki/${cityName}`}
-          target="_blank"
-          rel="noreferrer"
+          target='_blank'
+          rel='noreferrer'
         >
           Check out {cityName} on Wikipedia &rarr;
         </a>
       </div>
 
       <div>
-        <ButtonBack />
+        <BackButton />
       </div>
-    </div> */}
-    </h1>
+    </div>
   );
 }
 

@@ -7,6 +7,7 @@ const CityContext = createContext();
 // The Context Provider
 function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
+  const [activeCity, setActiveCity] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -27,11 +28,27 @@ function CityProvider({ children }) {
     fetchCities();
   }, []);
 
+  async function fetchCityById(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/cities/${id}`);
+      const data = await res.json();
+
+      setActiveCity(city => data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <CityContext.Provider
       value={{
         cities,
         isLoading,
+        activeCity,
+        fetchCityById,
       }}
     >
       {children}
