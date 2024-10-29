@@ -1,12 +1,17 @@
+// Contexts
+import { useCityContext } from '../../contexts/CityContext';
+
 // Components
 import Spinner from '../Spinner/Spinner';
 import Message from '../Message/Message';
+import CityItem from '../CityItem/CityItem';
 
 // CSS Module
 import styles from './CityList.module.css';
-import CityItem from '../CityItem/CityItem';
 
-function CityList({ cities, isLoading }) {
+function CityList() {
+  const { cities, isLoading } = useCityContext();
+
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return (
