@@ -17,7 +17,7 @@ function CityProvider({ children }) {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/cities`);
         const data = await res.json();
 
-        setCities(cities => data);
+        setCities((cities) => data);
       } catch (err) {
         console.log(err);
       } finally {
@@ -34,7 +34,44 @@ function CityProvider({ children }) {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/cities/${id}`);
       const data = await res.json();
 
-      setActiveCity(city => data);
+      setActiveCity((city) => data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/cities`, {
+        method: 'POST',
+        body: JSON.stringify(newCity),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await res.json(); // the data that we give : newCity | DO NOT USE THE ACTUAL newCity PARAMETER
+
+      setCities((cities) => [...cities, data]);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/cities/${id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+
+      setCities((cities) => cities.filter((city) => city.id !== id));
+      console.log(data);
     } catch (err) {
       console.log(err);
     } finally {
@@ -49,6 +86,8 @@ function CityProvider({ children }) {
         isLoading,
         activeCity,
         fetchCityById,
+        createCity,
+        deleteCity,
       }}
     >
       {children}

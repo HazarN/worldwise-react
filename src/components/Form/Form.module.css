@@ -38,7 +38,7 @@
   color: var(--color-dark--0);
 }
 
-:global(.react-datepicker) {
+.form .react-datepicker {
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }

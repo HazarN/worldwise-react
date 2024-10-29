@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import City from './components/City/City';
 import CityList from './components/CityList/CityList';
 import CountryList from './components/CountryList/CountryList';
+import Form from './components/Form/Form';
 import { CityProvider } from './contexts/CityContext';
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             <Route path='cities/:id' element={<City />} />
 
             <Route path='countries' element={<CountryList />} />
-            <Route path='form' element={<>Form</>} />
+            <Route path='form' element={<Form />} />
           </Route>
 
           {/* Any URL that's not found above will be directed to the page above */}
