@@ -8,13 +8,7 @@ export function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-export function useDecodeGeolocation(
-  positionArray,
-  setCityName,
-  setCountry,
-  setIsLoadingDecoding,
-  setEmoji
-) {
+export function useDecodeGeolocation(positionArray, dispatch) {
   const [lat, lng] = positionArray;
 
   useEffect(() => {
@@ -22,7 +16,7 @@ export function useDecodeGeolocation(
 
     async function decodeGeolocation() {
       try {
-        setIsLoadingDecoding(true);
+        dispatch({ type: 'loading' });
         const res = await fetch(
           `${
             import.meta.env.VITE_GEOCODING_URL
@@ -30,16 +24,19 @@ export function useDecodeGeolocation(
         );
         const data = await res.json();
 
-        setCityName((city) => data.city || data.locality || '');
-        setCountry((coutnry) => data.countryName);
-        setEmoji((emoji) => convertToEmoji(data.countryCode));
+        dispatch({
+          type: 'geocoding',
+          payload: {
+            cityName: data.city || data.locality || '',
+            country: data.countryName,
+            emoji: convertToEmoji(data.countryCode),
+          },
+        });
       } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoadingDecoding(false);
+        dispatch({ type: 'error', payload: err });
       }
     }
 
     decodeGeolocation();
-  }, [lat, lng, setCityName, setCountry, setIsLoadingDecoding, setEmoji]);
+  }, [lat, lng, dispatch]);
 }

@@ -1,5 +1,5 @@
 // React Libs
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 // Contexts
@@ -20,16 +20,64 @@ import styles from './Form.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'loading':
+      return {
+        ...state,
+        isLoadingDecoding: true,
+      };
+    case 'error':
+      return {
+        ...state,
+        isLoadingDecoding: false,
+        error: action.payload,
+      };
+    case 'geocoding':
+      return {
+        ...state,
+        cityName: action.payload.cityName,
+        country: action.payload.country,
+        emoji: action.payload.emoji,
+        isLoadingDecoding: false,
+      };
+    case 'get/cityName':
+      return {
+        ...state,
+        cityName: action.payload,
+      };
+    case 'get/date':
+      return {
+        ...state,
+        date: action.payload,
+      };
+    case 'get/notes':
+      return {
+        ...state,
+        notes: action.payload,
+      };
+
+    default:
+      throw new Error('Unknown action given to the reducer');
+  }
+}
+const initialState = {
+  cityName: '',
+  country: '',
+  notes: '',
+  error: null,
+  emoji: null,
+  position: [null, null],
+  isLoadingDecoding: false,
+  date: new Date(),
+};
+
 function Form() {
   const navigate = useNavigate();
   const { createCity, isLoading } = useCityContext();
-  const [cityName, setCityName] = useState('');
-  const [country, setCountry] = useState('');
-  const [emoji, setEmoji] = useState('');
-  const [notes, setNotes] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { cityName, country, emoji, notes, date, isLoadingDecoding } = state;
   const [lat, lng] = useURLPosition();
-  const [date, setDate] = useState(new Date());
-  const [isLoadingDecoding, setIsLoadingDecoding] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -51,13 +99,7 @@ function Form() {
     navigate('/app/cities');
   }
 
-  useDecodeGeolocation(
-    [lat, lng],
-    setCityName,
-    setCountry,
-    setIsLoadingDecoding,
-    setEmoji
-  );
+  useDecodeGeolocation([lat, lng], dispatch);
 
   if (isLoadingDecoding) return <Spinner />;
 
@@ -76,7 +118,9 @@ function Form() {
         <label htmlFor='cityName'>City name</label>
         <input
           id='cityName'
-          onChange={(e) => setCityName(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: 'get/cityName', payload: e.target.value })
+          }
           value={cityName}
         />
         {/* <span className={styles.flag}>{emoji}</span> */}
@@ -87,7 +131,7 @@ function Form() {
         <DatePicker
           calendarClassName={styles['react-datepicker']}
           selected={date}
-          onChange={(date) => setDate(date)}
+          onChange={(date) => dispatch({ type: 'get/date', payload: date })}
           dateFormat={'dd/MM/yyyy'}
         />
       </div>
@@ -96,7 +140,9 @@ function Form() {
         <label htmlFor='notes'>Notes about your trip to {cityName}</label>
         <textarea
           id='notes'
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: 'get/notes', payload: e.target.value })
+          }
           value={notes}
         />
       </div>
