@@ -1,52 +1,76 @@
 {
   "cities": [
     {
-      "id": "3b63",
-      "cityName": "Mahmudiye",
-      "country": "Turkiye",
-      "emoji": "🇹🇷",
-      "notes": "",
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2027-05-20T10:15:30.123Z",
+      "notes": "City of lights!",
       "position": {
-        "lat": "39.41073305508498",
-        "lng": "30.844116210937504"
+        "lat": 48.856613,
+        "lng": 2.352222
       },
-      "date": "2024-10-29T19:20:33.988Z"
+      "id": "22334455"
     },
     {
-      "id": "fc17",
-      "cityName": "Eskil",
-      "country": "Turkiye",
-      "emoji": "🇹🇷",
-      "notes": "",
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2027-09-10T14:45:20.456Z",
+      "notes": "Historical marvel!",
       "position": {
-        "lat": "38.64261790634527",
-        "lng": "33.40393066406251"
+        "lat": 41.9027835,
+        "lng": 12.4963655
       },
-      "date": "2024-10-29T19:25:37.701Z"
+      "id": "33445566"
     },
     {
-      "id": "33ae",
-      "cityName": "Cihanbeyli",
-      "country": "Turkiye",
-      "emoji": "🇹🇷",
-      "notes": "",
+      "cityName": "Tokyo",
+      "country": "Japan",
+      "emoji": "🇯🇵",
+      "date": "2027-11-18T06:30:50.789Z",
+      "notes": "Vibrant culture 🌸",
       "position": {
-        "lat": "38.72301905397471",
-        "lng": "33.29132080078126"
+        "lat": 35.689487,
+        "lng": 139.691706
       },
-      "date": "2024-10-29T19:25:37.701Z"
+      "id": "44556677"
     },
     {
-      "id": "ca0c",
-      "cityName": "Manawatawhi / Three Kings Islands",
-      "country": "New Zealand",
-      "emoji": "🇳🇿",
-      "notes": "lord of the rings\n",
+      "cityName": "New York",
+      "country": "USA",
+      "emoji": "🇺🇸",
+      "date": "2027-03-15T18:20:45.654Z",
+      "notes": "The Big Apple 🍎",
       "position": {
-        "lat": "-34.16114345875811",
-        "lng": "172.13280200958252"
+        "lat": 40.712776,
+        "lng": -74.005974
       },
-      "date": "2024-10-29T19:25:37.701Z"
+      "id": "55667788"
+    },
+    {
+      "cityName": "Sydney",
+      "country": "Australia",
+      "emoji": "🇦🇺",
+      "date": "2027-12-01T12:10:25.321Z",
+      "notes": "Beautiful harbor",
+      "position": {
+        "lat": -33.86882,
+        "lng": 151.209296
+      },
+      "id": "66778899"
+    },
+    {
+      "id": "4075",
+      "cityName": "Poitiers",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "notes": "It was really expensive",
+      "position": {
+        "lat": "46.56641407568593",
+        "lng": "0.34606933593750006"
+      },
+      "date": "2024-10-29T19:37:12.382Z"
     }
   ]
 }
