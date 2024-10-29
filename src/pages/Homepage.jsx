@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Components
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 // CSS Module
 import styles from './Homepage.module.css';

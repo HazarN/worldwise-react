@@ -1,5 +1,5 @@
 // Uses the same styles as Product
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import styles from './Product.module.css';
 
 export default function Product() {

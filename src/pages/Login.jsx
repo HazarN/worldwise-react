@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // CSS Module
 import styles from './Login.module.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES

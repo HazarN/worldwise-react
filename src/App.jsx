@@ -11,9 +11,9 @@ import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
 
 // Components
-import City from './components/City';
-import CityList from './components/CityList';
-import CountryList from './components/CountryList';
+import City from './components/City/City';
+import CityList from './components/CityList/CityList';
+import CountryList from './components/CountryList/CountryList';
 
 function App() {
   // States

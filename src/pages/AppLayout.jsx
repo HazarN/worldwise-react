@@ -1,6 +1,6 @@
 // Components
-import Map from '../components/Map';
-import Sidebar from '../components/Sidebar';
+import Map from '../components/Map/Map';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 // CSS Module
 import styles from './AppLayout.module.css';

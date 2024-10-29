@@ -1,10 +1,10 @@
 // Components
-import Spinner from './Spinner';
-import Message from './Message';
+import Spinner from '../Spinner/Spinner';
+import Message from '../Message/Message';
 
 // CSS Module
 import styles from './CityList.module.css';
-import CityItem from './CityItem';
+import CityItem from '../CityItem/CityItem';
 
 function CityList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
