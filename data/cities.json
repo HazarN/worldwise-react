@@ -59,18 +59,6 @@
         "lng": 151.209296
       },
       "id": "66778899"
-    },
-    {
-      "id": "4075",
-      "cityName": "Poitiers",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "notes": "It was really expensive",
-      "position": {
-        "lat": "46.56641407568593",
-        "lng": "0.34606933593750006"
-      },
-      "date": "2024-10-29T19:37:12.382Z"
     }
   ]
 }

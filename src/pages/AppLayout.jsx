@@ -1,6 +1,7 @@
 // Components
 import Map from '../components/Map/Map';
 import Sidebar from '../components/Sidebar/Sidebar';
+import User from '../components/User/User';
 
 // CSS Module
 import styles from './AppLayout.module.css';
@@ -10,6 +11,7 @@ function AppLayout() {
     <div className={styles.app}>
       <Sidebar />
       <Map />
+      <User />
     </div>
   );
 }
