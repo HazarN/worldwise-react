@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 
 // CSS Module
-import styles from './Homepage.module.css';
+import styles from './Landing.module.css';
 
 export default function Homepage() {
   return (
