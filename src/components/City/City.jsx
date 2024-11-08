@@ -13,7 +13,7 @@ import Button from '../Button/Button';
 import styles from './City.module.css';
 import BackButton from '../Button/BackButton';
 
-const dateFormatter = dateStr => {
+const dateFormatter = (dateStr) => {
   const date = new Date(dateStr);
   return new Intl.DateTimeFormat('en', {
     day: 'numeric',
@@ -31,7 +31,7 @@ function City() {
 
   useEffect(() => {
     fetchCityById(id);
-  }, [id]);
+  }, [id, fetchCityById]);
 
   // Conditional render should be below the effect, due to the rules of the hooks
   if (isLoading) return <Spinner />;

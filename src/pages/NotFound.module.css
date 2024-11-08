@@ -1,0 +1,43 @@
+.notfound {
+  height: calc(100vh - 5rem);
+  margin: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(
+      rgba(36, 42, 46, 0.8),
+      rgba(36, 42, 46, 0.8)
+    ),
+    url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-light--2);
+}
+
+.notfound h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--color-light--2);
+  margin-bottom: 1.5rem;
+}
+
+.notfound p {
+  font-size: 1.8rem;
+  color: var(--color-light--1);
+  max-width: 50rem;
+  margin-bottom: 2.5rem;
+}
+
+.notfound a {
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}

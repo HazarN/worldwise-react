@@ -1,5 +1,11 @@
 // React Libs
-import { createContext, useEffect, useContext, useReducer } from 'react';
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useCallback,
+} from 'react';
 
 // The Context
 const CityContext = createContext();
@@ -77,20 +83,23 @@ function CityProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function fetchCityById(id) {
-    if (id === activeCity.id) return;
+  const fetchCityById = useCallback(
+    async (id) => {
+      if (id === activeCity.id) return;
 
-    try {
-      dispatch({ type: 'loading' });
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/cities/${id}`);
-      const data = await res.json();
+      try {
+        dispatch({ type: 'loading' });
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/cities/${id}`);
+        const data = await res.json();
 
-      dispatch({ type: 'city/loaded', payload: data });
-    } catch (err) {
-      console.log(err);
-      dispatch({ type: 'rejected', payload: err });
-    }
-  }
+        dispatch({ type: 'city/loaded', payload: data });
+      } catch (err) {
+        console.log(err);
+        dispatch({ type: 'rejected', payload: err });
+      }
+    },
+    [activeCity.id]
+  );
 
   async function createCity(newCity) {
     try {

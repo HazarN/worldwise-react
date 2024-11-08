@@ -1,6 +1,5 @@
 // React Libs
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 // Contexts
 import { CityProvider } from './contexts/CityContext';
