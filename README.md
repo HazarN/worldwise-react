@@ -37,7 +37,7 @@ The project uses some third-party libraries including [React Router](https://rea
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project's front-end style is designed by Jonas Schmedtmann who is a teacher in Udemy, yet the code design and the fake API is being done by myself thanks to him.
 
 ## Contact
 
