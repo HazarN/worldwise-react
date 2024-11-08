@@ -4,7 +4,7 @@ This project provides an SPA created with Vite(React), a fake API that runs simp
 
 ## Initialization
 
-The project contains various amount of npm scripts; but to run both front-end and the back-end (json-server) in the same port number, an npm package called 'concurrently' is being used to start both of them. With `npm start` script, you can do this. This script firstly calls the `server.cjs` file which serves the builded static React scripts and the json-server with a proxy, and then runs the json-server on port 3001. Since we're using a proxy, we can access the json-server on our port 3000 with the url of `/api`.
+The project contains various amount of npm scripts; but to run both front-end and the back-end (json-server) in the same port number, an npm package called 'concurrently' is being used to start both of them. With the `npm start` script, you can do this. This script firstly calls the `server.cjs` file which serves the built static React scripts and the json-server with a proxy, and then runs the json-server on port 3001. Since we're using a proxy, we can access the json-server on our port 3000 with the url of `/api`.
 
 If you are confused with proxies and server.cjs files, you can run the app in the developer mode as well, the two choises are explained down below :D
 
