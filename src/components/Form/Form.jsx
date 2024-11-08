@@ -1,5 +1,5 @@
 // React Libs
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import DatePicker from 'react-datepicker';
 
 // Contexts

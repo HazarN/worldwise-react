@@ -1,5 +1,5 @@
 // React Libs
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 // Contexts
@@ -7,7 +7,6 @@ import { useCityContext } from '../../contexts/CityContext';
 
 // Components
 import Spinner from '../Spinner/Spinner';
-import Button from '../Button/Button';
 
 // CSS Module
 import styles from './City.module.css';
